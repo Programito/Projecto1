@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    	<!--  <link rel="stylesheet" href="./styles.css">-->
+    	<style>
+    		body{
+				background-color: lightblue;
+			}
+
+			h1{
+				color:blue;
+				font-size:64px;
+				text-align:center;
+			}
+    	
+			div.siguiente {
+				float:left;
+				text-align: left;
+				padding:35px;
+				margin-right:60px;
+			}
+			
+			select {
+				float:left;
+				text-align: left;
+     			background: transparent;
+     			border: none;
+  			}
+		
+		</style>
+		<script src="geometry.js" ></script> 
+        <title>Start Page</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+        <h1>Geometria</h1>
+        <form action="./form1" method="get">
+        	<!-- <p><a href="./form1"> Areas y Volumenes </a></p> -->
+			<select name="selecc" id="selecc" onchange="changeGeometry()">
+  					<option value="Cilindro">Cilindro</option>
+  					<option value="Esfera">Esfera</option>
+  					<option value="Cono">Cono</option>
+  					<option value="Cubo">Cubo</option>
+			</select> 
+       		<img src="./cilindro.png" alt="Imagen no cargada" width="150" height="150" style="float: left;" id="imagen">
+       		<br>
+       		<div class="siguiente">
+       			<label id="lNom">Radio:</label>
+       		 	<input type="number" step="any" name="radio"><br>
+       			<div id="divCheckbox" style="display: inline;">
+       				<br>
+       				Altura: <input type="number" step="any" name="altura"><br>
+       			</div>
+       			<br>
+       			<input type="submit" value="Calcular">
+       		</div>
+       		
+      	</form>
+    </body>
+    
+</html>
+
+
