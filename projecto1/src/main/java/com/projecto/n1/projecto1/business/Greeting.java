@@ -26,30 +26,34 @@ public class Greeting {
 	public String getGreeting(String tipo,String radioLado,String altura){
 		StringBuilder salida=new StringBuilder();
 		IntGeometry intgeo;
-		try{
-			if(tipo.equals("Esfera") || tipo.equals("Cubo") || tipo.equals("Cono") || tipo.equals("Cilindro")){
-				float radioA=Float.parseFloat(radioLado);
-				if(tipo.equals("Esfera")){
-					intgeo=new Esfera(radioA);
-				}else if(tipo.equals("Cilindro")){
-					float alt=Float.parseFloat(altura);
-					intgeo=new Cilindro(radioA,alt);
-				}else if(tipo.equals("Cubo")){
-					intgeo=new Cubo(radioA);
-				}else{
-					float alt=Float.parseFloat(altura);
-					intgeo=new Cono(radioA,alt);
-				}
-				salida.append(ARISTA).append(intgeo.getAristas()).append("<br>");
-				salida.append(VERTICES).append(intgeo.getVertices()).append("<br>");
-				salida.append(CARAS).append(intgeo.getCaras()).append("<br>");
-				salida.append(AREA).append(intgeo.computeArea()).append("<br>");
-				salida.append(VOLUMEN).append(intgeo.computevolumen()).append("<br>");
+		if(tipo==null || radioLado==null || altura==null){
+			salida.append("Los datos introducidos son nulos");
+		}
+		else{
+			try{
+				if(tipo.equals("Esfera") || tipo.equals("Cubo") || tipo.equals("Cono") || tipo.equals("Cilindro")){
+					float radioA=Float.parseFloat(radioLado);
+					if(tipo.equals("Esfera")){
+						intgeo=new Esfera(radioA);
+					}else if(tipo.equals("Cilindro")){
+						float alt=Float.parseFloat(altura);
+						intgeo=new Cilindro(radioA,alt);
+					}else if(tipo.equals("Cubo")){
+						intgeo=new Cubo(radioA);
+					}else{
+						float alt=Float.parseFloat(altura);
+						intgeo=new Cono(radioA,alt);
+					}
+					salida.append(ARISTA).append(intgeo.getAristas()).append("<br>");
+					salida.append(VERTICES).append(intgeo.getVertices()).append("<br>");
+					salida.append(CARAS).append(intgeo.getCaras()).append("<br>");
+					salida.append(AREA).append(intgeo.computeArea()).append("<br>");
+					salida.append(VOLUMEN).append(intgeo.computevolumen()).append("<br>");
 			}
-		}catch (NumberFormatException nfe)
-		{
+			}catch (NumberFormatException nfe){
 			salida.append("Los datos introducidos no son numeros");
-	    }
+			}
+		}
 		return salida.toString();
 	}
 	

@@ -36,7 +36,7 @@ public class ServletStateLessEjb extends HttpServlet {
 		String altura=request.getParameter("altura");
 		
 		
-		 String message = greeting.getGreeting(tipo,radio,altura); 
+		String message = greeting.getGreeting(tipo,radio,altura); 
 		
 
 		
